@@ -35,27 +35,44 @@
         }
         body{
             background-color: bisque;
+            font-family: Arial, Helvetica, sans-serif
         }
         main {
             background-color: white;
             max-width: 1200px;
             min-width: 400px;
-            height: 98vh;
+            height: 110vh;
             margin: auto;
             padding: 10px;
         }
         table {
             border-collapse: collapse;
             margin: auto;
+            position: relative; /* usado para fazer o cabeçalho fixo */
         }
-        th {
+
+        thead > tr > th { /* usado para fazer o cabeçalho fixo */
+            position: sticky; /* usado para fazer o cabeçalho fixo */
+            top: -1px; /* usado para fazer o cabeçalho fixo */
+            background-color: gray;
             border: 2px solid black;
             padding: 1px 5px 1px 5px;
-            background-color: gray;
-            color: black;
         }
+
+        tbody > tr:nth-child(2n) {
+            background-color: lightgray;
+        } /* comando para efeito zebrado */
+          /* tr:nth-child(odd) » efeito zebrado nas linhas impares */
+          /* tr:nth-child(even) » efeito zebrado nas linhas pares */
+
+        th {
+            background-color: gray;
+            border: 2px solid black;
+            padding: 1px 5px 1px 5px;
+        }
+
         td {
-            border: 1px solid black;
+            border: 2px solid black;
             padding: 1px 5px 1px 5px;
         }
 
@@ -71,6 +88,17 @@
             border: 1px solid black;
             background-color: black;
             color: white;
+        }
+
+        h2 {
+            padding: 30px;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+            padding: 10px;
+            line-height: 1.2em;
         }
     </style>
 </head>
@@ -91,13 +119,13 @@
             <caption>População das Unidades Federativas</caption>
             <thead>
                 <tr>
-                    <th><strong>Posição</strong></th>
-                    <th><strong>Unidade Federativa</strong></th>
-                    <th><strong>População</strong> Censo 2010</th>
-                    <th><strong>População</strong> Censo 2020</th>
-                    <th><strong>Mudança</strong></th>
-                    <th><strong>% da População</strong></th>
-                    <th><strong>Pais Comparavel</strong></th>
+                    <th scope="col"><strong>Posição</strong></th>  <!-- scope='col' » indica que o th é um titulo para uma coluna-->
+                    <th scope="col"><strong>Estado</strong></th>
+                    <th scope="col"><strong>População</strong> 2010</th>
+                    <th scope="col"><strong>População</strong> 2020</th>
+                    <th scope="col"><strong>Mudança</strong></th>
+                    <th scope="col"><strong>% da População</strong></th>
+                    <th scope="col"><strong>Pais Comparavel</strong></th>
                 </tr>
         
             </thead>
@@ -346,11 +374,38 @@
                     <td>Montenegro (649 335)</td>
                 </tr>
             </tbody>
-            <tfooter>
-                <th>Total de Habitantes</th>
-                <td>210 147 125</td>
-            </tfooter>
+            <tfoot>
+                <th scope="row">População Total </th> <!-- scope='row' » indica que o th é um titulo para a linha-->
+                <td class="numero">210 147 125</td>
+            </tfoot>
         </table>
+
+        <h2>A População Brasileira: Uma Jornada Pela Diversidade e Desafios</h2>
+
+        <p>
+            A população brasileira é um retrato fascinante da diversidade cultural, étnica e geográfica
+            que compõe o país. Com mais de 213 milhões de habitantes, o Brasil é o sexto país mais 
+            populoso do mundo, um mosaico de pessoas com histórias e origens distintas, que formam uma 
+            nação rica em pluralidade.
+        </p>
+        <p>
+            A população brasileira está distribuída de forma irregular pelo país. As regiões Sul e 
+            Sudeste são as mais densamente povoadas, concentrando mais da metade da população. 
+            Essas áreas são os principais polos industriais, comerciais e urbanos, o que atraem 
+            muitos brasileiros em busca de oportunidades de trabalho e uma melhor qualidade de vida. 
+            Já a região Nordeste, com um clima mais seco e desafios psicológicos, possui uma população 
+            significativa, mas com menor densidade. A região Norte é a menos populosa, porém, abriga 
+            comunidades indígenas e ribeirinhas, que vivem em harmonia com a natureza.
+        </p>
+        <p>
+            Apesar de ser uma nação com recursos naturais abundantes e um grande potencial econômico, 
+            o Brasil enfrenta desafios demográficos emocionantes. Um dos principais é o crescimento 
+            populacional descontrolado, que, embora tenha diminuído nas últimas décadas, ainda impacta 
+            a distribuição de recursos e serviços básicos, como saúde, educação e infraestrutura. 
+            Além disso, o país também lida com a questão da migração interna, com fluxos migratórios 
+            do campo para as cidades em busca de melhores condições de vida, o que pode levar a 
+            problemas urbanos e sociais.
+        </p>
     </main>
 </body>
 </html>
